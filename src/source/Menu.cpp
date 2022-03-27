@@ -61,7 +61,7 @@ void Menu::addSong()
 	std::ifstream file;
 	Song* tmpSong = new Song;
 	tmpSong->name = coutAndCin<string>("What is the name of the song?");
-	tmpSong->length = coutAndCin<songLength>("What is the length of the song?");
+	// tmpSong->length = coutAndCin<songLength>("What is the length of the song?");
 	tmpSong->trackNum = coutAndCin<int>("What is the track number of the song?");
 	int place = coutAndCin<int>("Where would you like to place this song?");
 
