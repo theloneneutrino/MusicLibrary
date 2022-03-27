@@ -1,8 +1,9 @@
-#include "DynArray.h"
+#include "..\headers\DynArray.h"
+#include "..\headers\Menu.h"
 #include <iostream>
 #include <vector>
 #include <random>
-#include "Menu.h"
+
 
 int main() 
 {

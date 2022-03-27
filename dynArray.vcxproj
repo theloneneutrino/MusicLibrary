@@ -19,22 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="\src\headers\DynArray.h" />
-    <ClInclude Include="\src\headers\Menu.h" />
-    <ClInclude Include="\src\headers\resource.h" />
-    <ClInclude Include="\src\headers\resource1.h" />
+    <ClInclude Include="src\headers\DynArray.h" />
+    <ClInclude Include="src\headers\Menu.h" />
+    <ClInclude Include="src\headers\resource.h" />
+    <ClInclude Include="src\headers\Song.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Driver.cpp" />
-    <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="Song.cpp" />
-    <ClCompile Include="Song.h" />
+    <None Include="src\resources\Library.csv" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Library.csv" />
+    <Text Include="src\resources\fileOptions.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="fileOptions.txt" />
+    <ClCompile Include="src\source\Driver.cpp" />
+    <ClCompile Include="src\source\Menu.cpp" />
+    <ClCompile Include="src\source\Song.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
