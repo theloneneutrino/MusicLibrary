@@ -42,15 +42,25 @@ ostream& operator<<(ostream& os, const Song& dt)
     return os;
 }
 
-//bool Song::operator<(Song& other)
-//{
-//    return this->length < other.length;
-//}
-//
-//bool Song::operator>=(Song& other)
-//{
-//    return !(this->length < other.length);
-//}
+bool Song::operator<(Song& other)
+{
+    return this->length < other.length;
+}
+
+bool Song::operator<=(Song& other)
+{
+    return this->length <= other.length;
+}
+
+bool Song::operator>(Song& other)
+{
+    return this->length > other.length;
+}
+
+bool Song::operator>=(Song& other)
+{
+    return this->length >= other.length;
+}
 
 Song::Song() : trackNum(1), name("Jibble")
 {}
@@ -64,20 +74,43 @@ Song::Song(string nm, int plce)
 songLength::songLength() : hours(0), minutes(0), seconds(0)
 {}
 
-//bool songLength::operator<(songLength& other)
-//{
-//    bool value;
-//    if (hours != other.hours)
-//    {
-//        value = hours < other.hours;
-//    }
-//    else if (minutes != other.minutes)
-//    {
-//        value = minutes < other.minutes;
-//    }
-//    else
-//    {
-//        value = seconds < other.seconds;
-//    }
-//    return value;
-//}
+bool songLength::operator<(songLength& other)
+{
+    bool value;
+    if (hours != other.hours) // if hours are not the same
+    {
+        value = hours < other.hours; // whichever one has less hours
+    }
+    else if (minutes != other.minutes) // if minutes are not the same
+    {
+        value = minutes < other.minutes; // whichever one has less minutes
+    }
+    else // all else being the same...
+    {
+        value = seconds < other.seconds; // compare the seconds
+    }
+    return value;
+}
+
+bool songLength::operator==(songLength& other) // sees if all measurements of time are identical
+{
+    return (hours == other.hours)
+        && (minutes == other.minutes)
+        && (seconds == other.seconds);
+}
+
+bool songLength::operator>=(songLength& other)
+{
+    return !(*this < other);
+}
+
+bool songLength::operator>(songLength& other)
+{
+    return !((*this < other) && (*this == other));
+}
+
+bool songLength::operator<=(songLength& other)
+{
+    return !(*this > other);
+}
+

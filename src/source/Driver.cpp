@@ -7,7 +7,12 @@
 
 int main() 
 {
+	cout << "Test" << endl;
 	Menu OneMenu;
-	OneMenu.displayOptions();
+	for (int i = 0; i < 10000; i++)
+	{
+		OneMenu.displayOptions();
+	}
+
 	return 0;
 }

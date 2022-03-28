@@ -23,6 +23,10 @@ struct songLength
 	songLength();
 
 	bool operator<(songLength&);
+	bool operator==(songLength&);
+	bool operator>=(songLength&);
+	bool operator>(songLength&);
+	bool operator<=(songLength&);
 	friend ostream& operator<<(ostream& os, const songLength& dt);
 	friend istream& operator>>(istream& is, const songLength& dt);
 };
@@ -35,6 +39,8 @@ struct Song
 
 	friend ostream& operator<<(ostream& os, const Song& dt);
 	bool operator<(Song&);
+	bool operator<=(Song&);
+	bool operator>(Song&);
 	bool operator>=(Song&);
 
 	Song();
