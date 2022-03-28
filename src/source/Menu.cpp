@@ -38,6 +38,9 @@ void Menu::selectOption(int selec)
 		print();
 		break;
 
+	case 5:
+		return;
+
 	case 6:
 		return;
 
@@ -144,7 +147,30 @@ string Menu::stringifyFile(const char* filename)
 }
 
 
-void Menu::binSort()
-{
-	
-}
+//void Menu::binSort()
+//{
+//	int first = 0, last = library.getSize();
+//	int middle = (first + last) / 2;
+//}
+//
+//Song& Menu::binSearch(Song obj, int& middle)
+//{
+//	int first = 0, last = library.getSize();
+//	middle = (first + last) / 2;
+//	
+//	while (last >= first) 
+//	{
+//		if (obj < *library.at(middle))
+//		{
+//
+//		}
+//		else if (obj > *library.at(middle))
+//		{
+//
+//		}
+//		else 
+//		{
+//
+//		}
+//	}
+//}
