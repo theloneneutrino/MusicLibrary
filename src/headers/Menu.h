@@ -22,6 +22,6 @@ public:
 	void serialize(const char*);
 	string stringifyFile(const char* filename);
 	void binSort();
-	Song& binSearch(Song obj, int& middle);
+	Song binSearch(Song obj, int& middle);
 };
 
