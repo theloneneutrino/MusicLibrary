@@ -77,22 +77,22 @@ songLength::songLength() : hours(0), minutes(0), seconds(0)
 bool songLength::operator<(songLength& other)
 {
     bool value;
-    if (hours != other.hours)
+    if (hours != other.hours) // if hours are not the same
     {
-        value = hours < other.hours;
+        value = hours < other.hours; // whichever one has less hours
     }
-    else if (minutes != other.minutes)
+    else if (minutes != other.minutes) // if minutes are not the same
     {
-        value = minutes < other.minutes;
+        value = minutes < other.minutes; // whichever one has less minutes
     }
-    else
+    else // all else being the same...
     {
-        value = seconds < other.seconds;
+        value = seconds < other.seconds; // compare the seconds
     }
     return value;
 }
 
-bool songLength::operator==(songLength& other)
+bool songLength::operator==(songLength& other) // sees if all measurements of time are identical
 {
     return (hours == other.hours)
         && (minutes == other.minutes)

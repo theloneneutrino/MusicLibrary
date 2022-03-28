@@ -21,19 +21,18 @@
   <ItemGroup>
     <ClInclude Include="src\headers\DynArray.h" />
     <ClInclude Include="src\headers\Menu.h" />
-    <ClInclude Include="src\headers\resource.h" />
     <ClInclude Include="src\headers\Song.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\resources\Library.csv" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="src\resources\fileOptions.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\source\Driver.cpp" />
     <ClCompile Include="src\source\Menu.cpp" />
     <ClCompile Include="src\source\Song.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="fileOptions.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Library.csv" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

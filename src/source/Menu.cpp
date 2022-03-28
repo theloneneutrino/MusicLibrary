@@ -103,7 +103,8 @@ void Menu::serialize(const char* filename)
 	std::ifstream input;
 	input.open(filename);
 	library.clear();
-	while (!input.eof())
+	int i = 0;
+	while (i < 4)
 	{
 		Song* tmpSong = new Song;
 		getline(input, tmpSong->name, ',');
@@ -126,6 +127,7 @@ void Menu::serialize(const char* filename)
 		input.ignore();
 
 		library.push_back(tmpSong);
+		i++;
 	}
 	input.close();
 }
