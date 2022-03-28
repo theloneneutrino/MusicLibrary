@@ -103,8 +103,7 @@ void Menu::serialize(const char* filename)
 	std::ifstream input;
 	input.open(filename);
 	library.clear();
-	int i = 0;
-	while (i < 4)
+	while (!input.eof())
 	{
 		Song* tmpSong = new Song;
 		getline(input, tmpSong->name, ',');
@@ -127,7 +126,6 @@ void Menu::serialize(const char* filename)
 		input.ignore();
 
 		library.push_back(tmpSong);
-		i++;
 	}
 	input.close();
 }
@@ -149,30 +147,32 @@ string Menu::stringifyFile(const char* filename)
 }
 
 
-//void Menu::binSort()
-//{
-//	int first = 0, last = library.getSize();
-//	int middle = (first + last) / 2;
-//}
-//
-//Song& Menu::binSearch(Song obj, int& middle)
-//{
-//	int first = 0, last = library.getSize();
-//	middle = (first + last) / 2;
-//	
-//	while (last >= first) 
-//	{
-//		if (obj < *library.at(middle))
-//		{
-//
-//		}
-//		else if (obj > *library.at(middle))
-//		{
-//
-//		}
-//		else 
-//		{
-//
-//		}
-//	}
-//}
+void Menu::binSort()
+{
+	int first = 0, last = library.getSize();
+	int middle = (first + last) / 2;
+}
+
+Song Menu::binSearch(Song obj, int& middle)
+{
+	int first = 0, last = library.getSize();
+	middle = (first + last) / 2;
+	
+	while (last >= first)
+	{
+		if (obj < *library.at(middle)) // if object is less than middle
+		{
+			last = middle - 1;
+		}
+		else if (obj > *library.at(middle)) // if obj is greater than middle
+		{
+			first = middle - 1;
+		}
+		else 
+		{
+			return obj;
+		}
+	}
+
+	return Song();
+}
