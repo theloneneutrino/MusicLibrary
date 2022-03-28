@@ -7,6 +7,7 @@
 
 int main() 
 {
+	cout << "Test" << endl;
 	Menu OneMenu;
 	OneMenu.displayOptions();
 	return 0;
