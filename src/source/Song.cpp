@@ -62,6 +62,11 @@ bool Song::operator>=(Song& other)
     return this->length >= other.length;
 }
 
+bool Song::operator==(Song& other) 
+{
+    return (this->length == other.length) && (this->name == other.name) && (this->trackNum == other.trackNum);
+}
+
 Song::Song() : trackNum(1), name("Jibble")
 {}
 

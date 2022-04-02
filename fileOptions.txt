@@ -3,3 +3,4 @@ Which option do you want to select?
 1: add a song
 2: remove a song
 3: Save song selection
+5: Print

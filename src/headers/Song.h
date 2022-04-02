@@ -42,6 +42,7 @@ struct Song
 	bool operator<=(Song&);
 	bool operator>(Song&);
 	bool operator>=(Song&);
+	bool operator==(Song&);
 
 	Song();
 	Song(string, int);

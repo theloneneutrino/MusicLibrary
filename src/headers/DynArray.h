@@ -137,7 +137,6 @@ inline void DynamicArray<T>::remove(int index)
 		{
 			tmpArray = new T[size - 1];
 			int ogArrayIt = 0;
-
 			for (int i = 0; i <= size; i++)
 			{
 				if (i == index - 1)

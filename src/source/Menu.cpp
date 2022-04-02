@@ -35,13 +35,14 @@ void Menu::selectOption(int selec)
 		break;
 
 	case 4:
-		print();
 		break;
 
 	case 5:
+		print();
 		return;
 
 	case 6:
+		exit(EXIT_SUCCESS);
 		return;
 
 	default:
@@ -147,15 +148,62 @@ string Menu::stringifyFile(const char* filename)
 }
 
 
-void Menu::binSort()
+void Menu::mergeSort(int first, int last)
 {
-	int first = 0, last = library.getSize();
-	int middle = (first + last) / 2;
+	if (first < last)
+	{
+		int middle = (first + last) / 2;
+		mergeSort(first, middle);
+		mergeSort(middle + 1, last);
+
+		merge(first, middle, last);
+	}
 }
 
-Song Menu::binSearch(Song obj, int& middle)
+void Menu::merge(int first, int middle, int last)
 {
-	int first = 0, last = library.getSize();
+	int mergedSize = last - first + 1;
+	int pos = 0;
+	int lPos = first;
+	int rPos = middle + 1;
+	Song* mergedNumbers = new Song[mergedSize];
+
+	while ((lPos <= middle) && (rPos <= last)) 
+	{
+		if (library.at(lPos) <= library.at(rPos)) {
+			mergedNumbers[pos] = *library.at(lPos);
+			lPos++;
+		}
+		else {
+			mergedNumbers[pos] = *library.at(rPos);
+			rPos++;
+		}
+		pos++;
+	}
+	
+	while ((lPos <= middle))
+	{
+		mergedNumbers[pos] = *library.at(lPos);
+		lPos++;
+		pos++;
+	}
+	
+	while ((rPos <= last))
+	{
+		mergedNumbers[pos] = *library.at(rPos);
+		rPos++;
+		pos++;
+	}
+
+	for (pos = 0; pos < mergedSize; pos++) 
+	{
+		*library.at(first + pos) = mergedNumbers[pos];
+	}
+}
+
+Song Menu::binSearch(Song obj)
+{
+	int first = 0, int middle, int last = library.getSize();
 	middle = (first + last) / 2;
 	
 	while (last >= first)
@@ -163,14 +211,21 @@ Song Menu::binSearch(Song obj, int& middle)
 		if (obj < *library.at(middle)) // if object is less than middle
 		{
 			last = middle - 1;
+			middle = (first + last) / 2;
 		}
 		else if (obj > *library.at(middle)) // if obj is greater than middle
 		{
-			first = middle - 1;
+			first = middle + 1;
+			middle = (first + last) / 2;
+		}
+		else if (obj == *library.at(middle))
+		{
+			return obj;
 		}
 		else 
 		{
-			return obj;
+			mergeSort(0, library.getSize());
+			binSearch(obj);
 		}
 	}
 

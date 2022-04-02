@@ -21,7 +21,10 @@ public:
 	void print(ostream&);
 	void serialize(const char*);
 	string stringifyFile(const char* filename);
-	void binSort();
-	Song binSearch(Song obj, int& middle);
+	void mergeSort(int, int);
+	void merge(int, int, int);
+	Song binSearch(Song obj);
+	
+	
 };
 
