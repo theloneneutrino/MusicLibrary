@@ -35,6 +35,7 @@ void Menu::selectOption(int selec)
 		break;
 
 	case 4:
+		mergeSort(0, library.getSize() - 1);
 		break;
 
 	case 5:
@@ -203,7 +204,7 @@ void Menu::merge(int first, int middle, int last)
 
 Song Menu::binSearch(Song obj)
 {
-	int first = 0, int middle, int last = library.getSize();
+	int first = 0, middle, last = library.getSize();
 	middle = (first + last) / 2;
 	
 	while (last >= first)
