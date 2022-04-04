@@ -82,7 +82,7 @@ void Menu::removeSong()
 
 void Menu::print()
 {
-	for (int i = 0; i < library.getSize(); i++) 
+	for (int i = 0; i < library.getSize(); i++)
 	{
 		cout << *library.at(i) << endl;
 	}
