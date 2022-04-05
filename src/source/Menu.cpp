@@ -161,44 +161,49 @@ void Menu::mergeSort(int first, int last)
 	}
 }
 
-void Menu::merge(int first, int middle, int last)
+void Menu::merge(const int first, const int middle, const int last)
 {
-	int mergedSize = last - first + 1;
-	int pos = 0;
-	int lPos = first;
-	int rPos = middle + 1;
-	Song* mergedNumbers = new Song[mergedSize];
+	int mergedSize = last - first + 1; // last index - first index + 1
+	int pos = 0; // position of mergedarray
+	int lpos = 0;
+	int rpos = 0;
+	Dynque<Song*> mergedQueue;
 
-	while ((lPos <= middle) && (rPos <= last)) 
+	lpos = first;
+	rpos = middle + 1;
+
+	while ((lpos <= middle) && (rpos <= last)) 
 	{
-		if (library.at(lPos) <= library.at(rPos)) {
-			mergedNumbers[pos] = *library.at(lPos);
-			lPos++;
+		if (library.at(lpos) <= library.at(rpos)) 
+		{
+			mergedQueue.enqueue(library.at(lpos));
+			lpos++;
 		}
-		else {
-			mergedNumbers[pos] = *library.at(rPos);
-			rPos++;
+		else
+		{
+			mergedQueue.enqueue(library.at(rpos));
+			rpos++;
 		}
 		pos++;
 	}
-	
-	while ((lPos <= middle))
+
+	while (lpos <= middle)
 	{
-		mergedNumbers[pos] = *library.at(lPos);
-		lPos++;
+		mergedQueue.enqueue(library.at(lpos));
+		lpos++;
 		pos++;
 	}
-	
-	while ((rPos <= last))
+
+	while (rpos <= last)
 	{
-		mergedNumbers[pos] = *library.at(rPos);
-		rPos++;
+		mergedQueue.enqueue(library.at(rpos));
+		lpos++;
 		pos++;
 	}
 
 	for (pos = 0; pos < mergedSize; pos++) 
 	{
-		*library.at(first + pos) = mergedNumbers[pos];
+		library.at(first + pos) = mergedQueue.dequeue();
 	}
 }
 
@@ -225,7 +230,7 @@ Song Menu::binSearch(Song obj)
 		}
 		else 
 		{
-			mergeSort(0, library.getSize());
+			mergeSort(0, library.getSize() - 1);
 			binSearch(obj);
 		}
 	}

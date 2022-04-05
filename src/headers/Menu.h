@@ -1,5 +1,6 @@
 #pragma once
 #include "DynArray.h"
+#include "DynQueue.h"
 #include "Song.h"
 
 class Menu
@@ -22,7 +23,7 @@ public:
 	void serialize(const char*);
 	string stringifyFile(const char* filename);
 	void mergeSort(int, int);
-	void merge(int, int, int);
+	void merge(const int, const int, const int);
 	Song binSearch(Song obj);
 	
 	
