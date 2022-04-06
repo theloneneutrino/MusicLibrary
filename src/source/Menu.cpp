@@ -201,7 +201,7 @@ void Menu::merge(const int first, const int middle, const int last)
 		pos++;
 	}
 
-	for (pos = 0; pos < mergedSize; pos++) 
+	for (pos = 0; pos < mergedSize; pos++)
 	{
 		library.at(first + pos) = mergedQueue.dequeue();
 	}

@@ -7,11 +7,17 @@
 
 int main() 
 {
-	cout << "Test" << endl;
+
+#ifdef _DEBUG
+	cout << "Music Library: DEBUG Edition!" << endl;
+#else
+	cout << "Music Library version 1.0" << endl;
+#endif // DEBUG
+
 	Menu OneMenu;
 	for (int i = 0; i < 10000; i++)
 	{
-		OneMenu.displayOptions();
+		OneMenu.selectOption(4);
 	}
 
 	return 0;

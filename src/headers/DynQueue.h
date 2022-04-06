@@ -19,6 +19,7 @@ private:
 	};
 
 	int size;
+	bool empty;
 	linkNode* head;
 	linkNode* tail;
 };
@@ -57,38 +58,39 @@ inline void Dynque<T>::enqueue(T obj)
 		tail = tmp;
 	}
 	size++;
+	empty = false;
 }
 
 template<class T>
 inline T Dynque<T>::dequeue()
 {
-	if (!isEmpty())
+	if (!empty)
 	{
 		linkNode* tmp = head;
 		T tmpVal = head->value;
 		head = head->next;
 		delete tmp;
-		return tmpVal;
 		size--;
+		empty = size < 1;
+		return tmpVal;
+	}
+	else
+	{
+		std::cerr << "Nothing to dequeue" << std::endl;
+		exit(EXIT_FAILURE);
 	}
 }
 
 template<class T>
-inline void Dynque<T>::dequeue(T& out)
+[[deprecated("Included for consistency.")]] inline void Dynque<T>::dequeue(T& out)
 {
-	if (!isEmpty()) 
-	{
-		linkNode* tmp = new linkNode;
-		tmp = head;
-		head = head->next;
-		out = tmp->value;
-		delete tmp;
-		size--;
-	}
+	T* tmp = nullptr;
+	tmp = dequeue();
+	return tmp;
 }
 
 template<class T>
 inline bool Dynque<T>::isEmpty()
 {
-	return size < 1;
+	return empty;
 }
