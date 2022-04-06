@@ -77,7 +77,7 @@ inline T Dynque<T>::dequeue()
 	else
 	{
 		std::cerr << "Nothing to dequeue" << std::endl;
-		exit(EXIT_FAILURE);
+		exit(17);
 	}
 }
 
